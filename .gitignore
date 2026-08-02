@@ -1,0 +1,38 @@
+# Dependencies (Backend & Frontend)
+**/node_modules/
+
+# Environment Variables & Secrets
+**/.env
+**/.env.*
+!**/.env.example
+
+# Production Builds
+**/dist/
+**/build/
+**/dist-ssr/
+
+# Local File Uploads & Temp Storage
+**/uploads/
+**/temp/
+
+# Logs & Debugging
+*.log
+**/npm-debug.log*
+**/yarn-debug.log*
+**/yarn-error.log*
+**/pnpm-debug.log*
+**/lerna-debug.log*
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+
+# IDE & Editor Settings
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

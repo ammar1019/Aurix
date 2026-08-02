@@ -9,7 +9,7 @@ export const signUp = async (req, res) => {
     const existEmail = await User.findOne({ email });
     if (existEmail) {
       return res.status(400).json({
-        message: "Email already exist",
+        message: "Email already exists",
       });
     }
 
@@ -34,8 +34,8 @@ export const signUp = async (req, res) => {
     res.cookie("token", token, {
       httpOnly: true,
       maxAge: 7 * 24 * 60 * 60 * 1000,
-      sameSite: "lax",
-      secure: false,
+      sameSite: "None",
+      secure: true,
     });
 
     const userResponse = user.toObject();
@@ -75,8 +75,8 @@ export const Login = async (req, res) => {
     res.cookie("token", token, {
       httpOnly: true,
       maxAge: 7 * 24 * 60 * 60 * 1000,
-      sameSite: "lax",
-      secure: false,
+      sameSite: "None",
+      secure: true,
     });
 
     const userResponse = user.toObject();
@@ -92,7 +92,11 @@ export const Login = async (req, res) => {
 
 export const logOut = async (req, res) => {
   try {
-    res.clearCookie("token");
+    res.clearCookie("token", {
+      httpOnly: true,
+      sameSite: "None",
+      secure: true,
+    });
     return res.status(200).json({
       message: "Logout successful",
     });

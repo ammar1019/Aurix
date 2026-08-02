@@ -30,9 +30,9 @@ function Home() {
         withCredentials: true,
       });
       setUserData(null);
-      navigate("/sigin");
+      navigate("/signin");
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
@@ -69,13 +69,11 @@ function Home() {
     synth.cancel();
 
     const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = "hi-IN";
+    utterance.lang = "en-US";
 
     const voices = synth.getVoices();
-    const hindiVoice = voices.find(
-      (v) => v.lang === "hi-IN" || v.lang.startsWith("hi")
-    );
-    if (hindiVoice) utterance.voice = hindiVoice;
+    const selectedVoice = voices.find((v) => v.lang.includes("en"));
+    if (selectedVoice) utterance.voice = selectedVoice;
 
     isSpeakingRef.current = true;
     setMicStatus("Assistant speaking...");

@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import { Route, Routes } from "react-router-dom";
-import SignUp from "./pages/SignUp";
-import SignIn from "./pages/Signin";
+import SignUp from "./pages/SignUp.jsx";
+import SignIn from "./pages/SignIn.jsx";
 import { userDataContext } from "./context/UserContext";
-import Home from "./Home";
-import Customize from "./pages/Customize";
+import Home from "./Home.jsx";
+import Customize from "./pages/Customize.jsx";
 import { Navigate } from "react-router-dom";
-import Customize2 from "./pages/Customize2";
+import Customize2 from "./pages/Customize2.jsx";
 const App = () => {
   const { userData, setUserData } = useContext(userDataContext);
 
